@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import LightRays from "@/components/LightRays";
 import Navbar from "@/components/Navbar";
+import { PostHogProvider } from "./providers";
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const schibstedGrotesk = Schibsted_Grotesk({
@@ -31,6 +32,7 @@ export default function RootLayout({
         <body
             className={`${schibstedGrotesk.variable} ${martianMono.variable} min-h-screen antialiased`}
         >
+        <PostHogProvider>
         <Navbar/>
         <div className="absolute inset-0 top-0 z-[-1] min-h-screen"><LightRays
             raysOrigin="top-center-offset"
@@ -48,6 +50,7 @@ export default function RootLayout({
             saturation={1}
         /></div>
         <main>{children}</main>
+        </PostHogProvider>
 
 
         </body>
