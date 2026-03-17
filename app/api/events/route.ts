@@ -5,6 +5,7 @@ import {v2 as cloudinary} from "cloudinary";
 
 export async function POST(req: NextRequest) {
     try {
+        console.log("Post method invoked")
         await connectDB();
         let event;
         const formData = await req.formData();
@@ -45,6 +46,7 @@ export async function POST(req: NextRequest) {
 
 export async function GET() {
     try{
+        console.log("GET method invoked")
         await connectDB();
 
         const events = await Event.find().sort({createdAt: -1});
